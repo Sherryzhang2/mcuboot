@@ -22,7 +22,9 @@
     #include <stddef.h>
     #include <mbedtls/cmac.h>
     #include <mbedtls/md.h>
-    #include <mbedtls/md_internal.h>
+    #if MBEDTLS_VERSION_NUMBER < 0x03000000
+        #include <mbedtls/md_internal.h>
+    #endif
 #endif /* MCUBOOT_USE_MBED_TLS */
 
 #if defined(MCUBOOT_USE_TINYCRYPT)

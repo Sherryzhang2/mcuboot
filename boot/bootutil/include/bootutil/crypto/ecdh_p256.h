@@ -70,6 +70,8 @@ static inline int bootutil_ecdh_p256_shared_secret(bootutil_ecdh_p256_context *c
 #if defined(MCUBOOT_USE_MBED_TLS)
 #define NUM_ECC_BYTES 32
 
+static int fake_rng(void *p_rng, unsigned char *output, size_t len);
+
 typedef struct bootutil_ecdh_p256_context {
     mbedtls_ecp_group grp;
     mbedtls_ecp_point P;
@@ -126,7 +128,7 @@ static inline int bootutil_ecdh_p256_shared_secret(bootutil_ecdh_p256_context *c
                                      &ctx->z,
                                      &ctx->P,
                                      &ctx->d,
-                                     NULL,
+                                     fake_rng,
                                      NULL);
 
     mbedtls_mpi_write_binary(&ctx->z, z, NUM_ECC_BYTES);
