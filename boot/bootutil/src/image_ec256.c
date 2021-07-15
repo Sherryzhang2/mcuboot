@@ -43,12 +43,6 @@
 #include "bootutil/crypto/ecdsa_p256.h"
 #include "bootutil_priv.h"
 
-/* Extract a member of the mbedtls context structure. */
-#if MBEDTLS_VERSION_NUMBER >= 0x03000000
-#define MBEDTLS_CONTEXT_MEMBER(X) MBEDTLS_PRIVATE(X)
-#else
-#define MBEDTLS_CONTEXT_MEMBER(X) X
-#endif
 
 /*
  * Declaring these like this adds NULL termination.

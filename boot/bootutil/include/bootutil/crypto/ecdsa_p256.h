@@ -34,12 +34,6 @@
     #define BOOTUTIL_CRYPTO_ECDSA_P256_HASH_SIZE (4 * 8)
 #endif
 
-/* Extract a member of the mbedtls context structure. */
-#if MBEDTLS_VERSION_NUMBER >= 0x03000000
-#define MBEDTLS_CONTEXT_MEMBER(X) MBEDTLS_PRIVATE(X)
-#else
-#define MBEDTLS_CONTEXT_MEMBER(X) X
-#endif
 
 #ifdef __cplusplus
 extern "C" {

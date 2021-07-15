@@ -1,5 +1,6 @@
 /*
  *  Copyright (C) 2018 Open Source Foundries Limited
+ *  Copyright (c) 2021 Arm Limited
  *  SPDX-License-Identifier: Apache-2.0
  */
 
@@ -31,6 +32,12 @@
 #include "config-ed25519.h"
 #else
 #error "Cannot configure mbedTLS; signature type is unknown."
+#endif
+
+#if MBEDTLS_VERSION_NUMBER >= 0x03000000
+#define MBEDTLS_CONTEXT_MEMBER(X) MBEDTLS_PRIVATE(X)
+#else
+#define MBEDTLS_CONTEXT_MEMBER(X) X
 #endif
 
 #endif

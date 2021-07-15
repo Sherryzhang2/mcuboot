@@ -1,7 +1,7 @@
 /*
  *  Configuration of mbedTLS containing only the ASN.1 parser.
  *
- *  Copyright (C) 2006-2015, ARM Limited, All Rights Reserved
+ *  Copyright (C) 2006-2021, ARM Limited, All Rights Reserved
  *  Copyright (C) 2016, Linaro Ltd
  *  SPDX-License-Identifier: Apache-2.0
  *
@@ -40,6 +40,12 @@
 // #define MBEDTLS_MD_C
 // #define MBEDTLS_OID_C
 // #define MBEDTLS_SHA256_C
+
+#if MBEDTLS_VERSION_NUMBER >= 0x03000000
+#define MBEDTLS_CONTEXT_MEMBER(X) MBEDTLS_PRIVATE(X)
+#else
+#define MBEDTLS_CONTEXT_MEMBER(X) X
+#endif
 
 #include "mbedtls/check_config.h"
 

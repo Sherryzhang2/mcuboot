@@ -44,15 +44,7 @@
 #include "bootutil/image.h"
 #include "bootutil/enc_key.h"
 #include "bootutil/sign_key.h"
-
 #include "bootutil_priv.h"
-
-/* Extract a member of the mbedtls context structure. */
-#if MBEDTLS_VERSION_NUMBER >= 0x03000000
-#define MBEDTLS_CONTEXT_MEMBER(X) MBEDTLS_PRIVATE(X)
-#else
-#define MBEDTLS_CONTEXT_MEMBER(X) X
-#endif
 
 #if defined(MCUBOOT_ENCRYPT_EC256) || defined(MCUBOOT_ENCRYPT_X25519)
 #if defined(_compare)
