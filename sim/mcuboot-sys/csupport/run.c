@@ -27,12 +27,6 @@
 
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
 
-/* Extract a member of the mbedtls context structure. */
-#if MBEDTLS_VERSION_NUMBER >= 0x03000000
-#define MBEDTLS_CONTEXT_MEMBER(X) MBEDTLS_PRIVATE(X)
-#else
-#define MBEDTLS_CONTEXT_MEMBER(X) X
-#endif
 
 struct area_desc;
 extern struct area_desc *sim_get_flash_areas(void);

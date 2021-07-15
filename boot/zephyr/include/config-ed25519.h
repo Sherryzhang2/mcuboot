@@ -74,6 +74,12 @@
 /* Save ROM and a few bytes of RAM by specifying our own ciphersuite list */
 #define MBEDTLS_SSL_CIPHERSUITES MBEDTLS_TLS_ECJPAKE_WITH_AES_128_CCM_8
 
+#if MBEDTLS_VERSION_NUMBER >= 0x03000000
+#define MBEDTLS_CONTEXT_MEMBER(X) MBEDTLS_PRIVATE(X)
+#else
+#define MBEDTLS_CONTEXT_MEMBER(X) X
+#endif
+
 #include "mbedtls/check_config.h"
 
 #endif /* MCUBOOT_MBEDTLS_CONFIG_RSA */

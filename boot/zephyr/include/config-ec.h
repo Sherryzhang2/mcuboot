@@ -92,6 +92,12 @@
 #define MBEDTLS_NIST_KW_C
 #endif /* MCUBOOT_ENC_IMAGES */
 
+#if MBEDTLS_VERSION_NUMBER >= 0x03000000
+#define MBEDTLS_CONTEXT_MEMBER(X) MBEDTLS_PRIVATE(X)
+#else
+#define MBEDTLS_CONTEXT_MEMBER(X) X
+#endif
+
 #include "mbedtls/check_config.h"
 
 #endif /* MCUBOOT_MBEDTLS_CONFIG_ECDSA */

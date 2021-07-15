@@ -68,12 +68,6 @@
 /* Where the salt starts. */
 #define PSS_MASK_SALT_POS   (PSS_MASK_ONE_POS + 1)
 
-/* Extract a member of the mbedtls context structure. */
-#if MBEDTLS_VERSION_NUMBER >= 0x03000000
-#define MBEDTLS_CONTEXT_MEMBER(X) MBEDTLS_PRIVATE(X)
-#else
-#define MBEDTLS_CONTEXT_MEMBER(X) X
-#endif
 
 static const uint8_t pss_zeros[8] = {0};
 
